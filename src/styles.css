@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-paper text-zinc-900 antialiased;
+}
+
+.reader-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.reader-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-zinc-300 rounded-full;
+}
