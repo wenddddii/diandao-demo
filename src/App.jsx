@@ -25,7 +25,7 @@ function Reader({ currentChapterId, onChangeChapter }) {
           >
             {chapters.map((ch) => (
               <option key={ch.id} value={ch.id}>
-                第{ch.id}章 · {ch.title}
+                {ch.title}
               </option>
             ))}
           </select>
@@ -35,11 +35,29 @@ function Reader({ currentChapterId, onChangeChapter }) {
       <main className="flex-1 px-10 py-6 overflow-y-auto reader-scrollbar">
         <article className="max-w-3xl mx-auto leading-relaxed text-[15px] text-zinc-800">
           <h2 className="text-base font-semibold mb-2">
-            第{currentChapter.id}章 · {currentChapter.title}
+            {currentChapter.title}
           </h2>
           <p className="whitespace-pre-wrap font-[system-ui] tracking-wide">
             {currentChapter.content}
           </p>
+          <div className="mt-8 pt-4 border-t border-zinc-200 flex justify-between">
+            {currentChapterId > 1 && (
+              <button
+                onClick={() => onChangeChapter(currentChapterId - 1)}
+                className="px-4 py-2 text-sm bg-zinc-100 hover:bg-zinc-200 text-zinc-700 rounded-md transition-colors"
+              >
+                上一章
+              </button>
+            )}
+            {currentChapterId < chapters.length && (
+              <button
+                onClick={() => onChangeChapter(currentChapterId + 1)}
+                className="px-4 py-2 text-sm bg-emerald-500 hover:bg-emerald-600 text-white rounded-md transition-colors ml-auto"
+              >
+                下一章
+              </button>
+            )}
+          </div>
         </article>
       </main>
     </div>
@@ -273,6 +291,12 @@ export default function App() {
             />
           </div>
         </div>
+      </div>
+      <div className="fixed bottom-4 right-4 bg-white/80 backdrop-blur-sm border border-zinc-200/50 rounded-lg px-3 py-2 text-xs text-zinc-600 shadow-sm">
+        本页面作者：叶韵雯（wendi_ye@126.com）<br/>
+        仅为概念展示，借助DeepSeek大模型功能<br/>
+        不对AI生成内容负责<br/>
+        最新修改：2026年2月
       </div>
     </div>
   );
