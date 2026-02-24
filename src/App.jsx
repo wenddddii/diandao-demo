@@ -100,9 +100,9 @@ function RecapPanel({ progressChapterId }) {
   return (
     <section className="space-y-2">
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-zinc-800">AI 前情提要</h3>
+        <h3 className="text-sm font-semibold text-zinc-800">AI 前情提要 · 点道</h3>
         <span className="text-[11px] text-zinc-400">
-          严格基于已读至第{progressChapterId}章
+          基于你的阅读进度：第{progressChapterId}章
         </span>
       </div>
       <div className="bg-white/90 border border-zinc-200 rounded-xl px-3 py-3 text-xs leading-relaxed text-zinc-700 shadow-[0_0_0_1px_rgba(0,0,0,0.01)] min-h-[72px]">
@@ -132,7 +132,7 @@ function QAPanel({ progressChapterId }) {
         const llmAnswer = await getLLMAnswer(input, readChapters, progressChapterId);
         result = {
           answer: llmAnswer,
-          scopeNote: `回答仅基于目前已读至第${progressChapterId}章的内容，由 DeepSeek 按零剧透规则生成。`,
+          scopeNote: `回答仅基于你的阅读进度：第${progressChapterId}章，由 DeepSeek 按零剧透规则生成。`,
           citations: []
         };
       } catch (e) {
@@ -293,9 +293,8 @@ export default function App() {
         </div>
       </div>
       <div className="fixed bottom-4 right-4 bg-white/80 backdrop-blur-sm border border-zinc-200/50 rounded-lg px-3 py-2 text-xs text-zinc-600 shadow-sm">
-        本页面作者：叶韵雯（wendi_ye@126.com）<br/>
-        仅为概念展示，借助DeepSeek大模型功能<br/>
-        不对AI生成内容负责<br/>
+        作者邮箱：wendi_ye@126.com<br/>
+        仅为概念展示，借助DeepSeek大模型功能，不对AI生成内容负责<br/>
         最新修改：2026年2月
       </div>
     </div>
