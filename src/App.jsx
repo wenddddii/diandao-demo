@@ -59,9 +59,9 @@ export default function App() {
       {showConcept && <ConceptModal onClose={() => setShowConcept(false)} />}
 
       <div className="fixed bottom-4 right-4 bg-white/80 backdrop-blur-sm border border-zinc-200/50 rounded-lg px-3 py-2 text-xs text-zinc-600 shadow-sm">
-        作者邮箱：wendi_ye@126.com<br />
-        仅为概念展示，借助DeepSeek大模型功能，不对AI生成内容负责<br />
-        最新修改：2026年2月
+        开发者：叶韵雯<br />
+        邮箱：wendi_ye@126.com<br />
+        最新修改：2026年4月
       </div>
     </div>
   );
